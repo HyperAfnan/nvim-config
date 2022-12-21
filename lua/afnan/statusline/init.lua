@@ -1,1 +1,1 @@
-require('afnan.statusline.core')
+require("afnan.statusline.core")

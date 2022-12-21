@@ -83,4 +83,3 @@ nvim_lsp.sumneko_lua.setup({
 		format = { enable = true },
 	},
 })
-

@@ -1,4 +1,4 @@
-local builtin = require('telescope.builtin')
+local builtin = require("telescope.builtin")
 
 local function set_keymap(mode, lhs, rhs)
 	vim.keymap.set(mode, lhs, rhs, { silent = true, noremap = true })
@@ -50,9 +50,8 @@ set_keymap("n", "Y", "y$")
 set_keymap("i", "<C-c>", "<C-x><C-v>")
 set_keymap("i", "<C-f>", "<C-x><C-f>")
 
-
 -- Telescope
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})

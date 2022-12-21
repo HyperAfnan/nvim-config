@@ -1,3 +1,2 @@
-
-require('afnan.lsp.lsp-config')
-require('afnan.lsp.cmp')
+require("afnan.lsp.lsp-config")
+require("afnan.lsp.cmp")
