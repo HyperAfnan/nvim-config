@@ -7,7 +7,6 @@ local function prequire(...)
 end
 
 local nvim_lsp = prequire("lspconfig")
-local nvim_lsp_config = prequire("lspconfig.configs")
 local capabilities = require("afnan.lsp.utils").capabilities()
 local on_attach = require("afnan.lsp.utils").on_attach
 

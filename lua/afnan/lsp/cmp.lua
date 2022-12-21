@@ -4,8 +4,7 @@ local luasnip = require('luasnip')
 local kind = require('afnan.lsp.utils').kind()
 local border = require("afnan.lsp.utils").borders()
 local sources = require('afnan.lsp.cmp-sources')
-   
-  cmp.setup({
+ cmp.setup({
     snippet = {
       expand = function(args)
          luasnip.lsp_expand(args.body)

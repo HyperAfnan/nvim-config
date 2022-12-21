@@ -5,7 +5,7 @@ local tsinstall = require("nvim-treesitter.install")
 treesitter.setup({
 	ensure_installed = { "lua", "javascript", "python", "css", "html" },
 	sync_install = true,
-	auto_install = true,	
+	auto_install = true,
 	highlight = { enable = true, additional_vim_regex_highlighting = false },
 --	indent = { enable = true, disable = "yaml" },
 --	rainbow = { enable = true, extended_mode = false },
@@ -20,7 +20,7 @@ treesitter.setup({
 --		},
 --	},
 	autopairs = { enable = true },
---	autotag = { enable = true, filetypes = { "html", "javascript", "javascriptreact", "markdown" } },
+	autotag = { enable = true, filetypes = { "html", "javascript", "javascriptreact", "markdown" }},
 })
 
 -- Installation Config
