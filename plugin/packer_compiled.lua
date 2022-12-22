@@ -249,18 +249,14 @@ local no_errors, error_msg = pcall(function()
 	-- Command lazy-loads
 	time([[Defining lazy-load commands]], true)
 	pcall(vim.api.nvim_create_user_command, "StartupTime", function(cmdargs)
-		require("packer.load")(
-			{ "startuptime.vim" },
-			{
-				cmd = "StartupTime",
-				l1 = cmdargs.line1,
-				l2 = cmdargs.line2,
-				bang = cmdargs.bang,
-				args = cmdargs.args,
-				mods = cmdargs.mods,
-			},
-			_G.packer_plugins
-		)
+		require("packer.load")({ "startuptime.vim" }, {
+			cmd = "StartupTime",
+			l1 = cmdargs.line1,
+			l2 = cmdargs.line2,
+			bang = cmdargs.bang,
+			args = cmdargs.args,
+			mods = cmdargs.mods,
+		}, _G.packer_plugins)
 	end, {
 		nargs = "*",
 		range = true,
@@ -274,19 +270,33 @@ local no_errors, error_msg = pcall(function()
 
 	-- Keymap lazy-loads
 	time([[Defining lazy-load keymaps]], true)
-	vim.cmd([[noremap <silent> gbc <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gbc", prefix = "" }, _G.packer_plugins)<cr>]])
-	vim.cmd([[noremap <silent> gc <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gc", prefix = "" }, _G.packer_plugins)<cr>]])
-	vim.cmd([[noremap <silent> gb <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gb", prefix = "" }, _G.packer_plugins)<cr>]])
-	vim.cmd([[noremap <silent> gcc <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gcc", prefix = "" }, _G.packer_plugins)<cr>]])
+	vim.cmd(
+		[[noremap <silent> gbc <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gbc", prefix = "" }, _G.packer_plugins)<cr>]]
+	)
+	vim.cmd(
+		[[noremap <silent> gc <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gc", prefix = "" }, _G.packer_plugins)<cr>]]
+	)
+	vim.cmd(
+		[[noremap <silent> gb <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gb", prefix = "" }, _G.packer_plugins)<cr>]]
+	)
+	vim.cmd(
+		[[noremap <silent> gcc <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gcc", prefix = "" }, _G.packer_plugins)<cr>]]
+	)
 	time([[Defining lazy-load keymaps]], false)
 
 	vim.cmd([[augroup packer_load_aucmds]])
 	vim.cmd([[au!]])
 	-- Filetype lazy-loads
 	time([[Defining lazy-load filetype autocommands]], true)
-	vim.cmd([[au FileType html ++once lua require("packer.load")({'nvim-ts-autotag'}, { ft = "html" }, _G.packer_plugins)]])
-	vim.cmd([[au FileType javascript ++once lua require("packer.load")({'nvim-ts-autotag'}, { ft = "javascript" }, _G.packer_plugins)]])
-	vim.cmd([[au FileType javascriptreact ++once lua require("packer.load")({'nvim-ts-autotag'}, { ft = "javascriptreact" }, _G.packer_plugins)]])
+	vim.cmd(
+		[[au FileType html ++once lua require("packer.load")({'nvim-ts-autotag'}, { ft = "html" }, _G.packer_plugins)]]
+	)
+	vim.cmd(
+		[[au FileType javascript ++once lua require("packer.load")({'nvim-ts-autotag'}, { ft = "javascript" }, _G.packer_plugins)]]
+	)
+	vim.cmd(
+		[[au FileType javascriptreact ++once lua require("packer.load")({'nvim-ts-autotag'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
+	)
 	time([[Defining lazy-load filetype autocommands]], false)
 	vim.cmd("augroup END")
 

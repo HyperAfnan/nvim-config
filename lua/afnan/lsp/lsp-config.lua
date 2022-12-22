@@ -31,8 +31,8 @@ nvim_lsp.tsserver.setup({
 })
 
 nvim_lsp.html.setup({
-   on_attach = on_attach,
-   capabilities = capabilities,
+	on_attach = on_attach,
+	capabilities = capabilities,
 })
 
 nvim_lsp.cssls.setup({
@@ -40,22 +40,22 @@ nvim_lsp.cssls.setup({
 	capabilities = capabilities,
 })
 
- nvim_lsp.eslint.setup({
- 	on_attach = on_attach,
- 	capabilities = capabilities,
- 	settings = {
- 		eslint = {
- 			enable = true,
- 			packageManager = "yarn",
- 			autoFixOnSave = true,
- 			codeActionsOnSave = {
- 				mode = "all",
- 				rules = { "!debugger", "!no-only-tests/*" },
- 			},
- 			lintTask = { enable = true },
- 		},
- 	},
- })
+nvim_lsp.eslint.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		eslint = {
+			enable = true,
+			packageManager = "yarn",
+			autoFixOnSave = true,
+			codeActionsOnSave = {
+				mode = "all",
+				rules = { "!debugger", "!no-only-tests/*" },
+			},
+			lintTask = { enable = true },
+		},
+	},
+})
 
 nvim_lsp.sumneko_lua.setup({
 	on_attach = on_attach,
