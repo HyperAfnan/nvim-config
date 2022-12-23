@@ -11,7 +11,6 @@ cmp.setup({
 		end,
 	},
 	window = {
-
 		documentation = {
 			border = border,
 		},
