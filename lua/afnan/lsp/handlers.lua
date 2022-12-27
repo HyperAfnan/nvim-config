@@ -8,6 +8,7 @@ end
 local border = prequire("afnan.lsp.utils").borders()
 local codes = prequire("afnan.lsp.utils").diagnosticsCode()
 local function format(diagnostic)
+	print(vim.inspect(diagnostic))
 	if diagnostic.user_data == nil then
 		return diagnostic.message
 	elseif vim.tbl_isempty(diagnostic.user_data) then
@@ -51,9 +52,9 @@ end
 
 -- Diagnostics Setup
 vim.diagnostic.config({
-	signs = false,
+	signs = true,
 	virtual_text = false,
-	update_in_insert = false,
+	update_in_insert = true,
 	underline = true,
 	float = {
 		focusable = false,
@@ -62,7 +63,6 @@ vim.diagnostic.config({
 		source = "if_many",
 		format = format,
 		header = { "Cursor Diagnostics: ", "DiagnosticInfo" },
-		pos = 1,
 		prefix = prefix,
 	},
 })

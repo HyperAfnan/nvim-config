@@ -1,46 +1,85 @@
-vim.cmd([[packadd packer.nvim]])
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"--single-branch",
+		"https://github.com/folke/lazy.nvim.git",
+		lazypath,
+	})
+end
+vim.opt.runtimepath:prepend(lazypath)
 
-return require("packer").startup(function(use)
-	use("wbthomason/packer.nvim")
-	use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } })
-	use({
+require("lazy").setup({
+	{ "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+	{
 		"nathom/filetype.nvim",
 		config = function()
 			require("filetype").setup({ overrides = { complex = { [".luacheckrc"] = "lua" } } })
 		end,
-	})
-	use({
+	},
+	{
 		"folke/tokyonight.nvim",
 		config = function()
 			vim.cmd("colorscheme tokyonight")
 		end,
-	})
-	use({ "tweekmonster/startuptime.vim", cmd = "StartupTime", lock = true })
-	use("kyazdani42/nvim-web-devicons")
+	},
+	{ "tweekmonster/startuptime.vim", pin = true, cmd = "StartupTime" },
+	"kyazdani42/nvim-web-devicons",
 
-	-- Treesitter
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = [[require('afnan.treesitter')]] })
-	use({ "windwp/nvim-ts-autotag", ft = { "html", "javascript", "javascriptreact" }, after = "nvim-treesitter" })
-	use({ "p00f/nvim-ts-rainbow" })
-	use({ "JoosepAlviste/nvim-ts-context-commentstring", after = "Comment.nvim" })
-	use({
-		"windwp/nvim-autopairs",
-		config = "require('afnan.autopairs')",
-		after = "nvim-cmp",
-	})
-	use({
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		config = function()
+			require("afnan.treesitter")
+		end,
+		dependencies = {
+			{ "windwp/nvim-ts-autotag", ft = { "html", "javascript", "javascriptreact" } },
+			{ "p00f/nvim-ts-rainbow" },
+			{ "JoosepAlviste/nvim-ts-context-commentstring" },
+		},
+	},
+	"windwp/nvim-autopairs",
+	{
 		"numToStr/Comment.nvim",
-		keys = { "gcc", "gc", "gb", "gbc" },
-		config = "require('afnan.comments')",
-	})
-
-	-- LSP
-	use("neovim/nvim-lspconfig")
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-cmdline")
-	use("hrsh7th/nvim-cmp")
-	use("saadparwaiz1/cmp_luasnip")
-	use("L3MON4D3/LuaSnip")
-end)
+		config = function()
+			require("afnan.comments")
+		end,
+		dependencies = {
+			"JoosepAlviste/nvim-ts-context-commentstring",
+		},
+	},
+	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			require("afnan.lsp.language-servers")
+		end,
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+		},
+	},
+	{
+		"hrsh7th/nvim-cmp",
+		config = function()
+			require("afnan.lsp.cmp")
+		end,
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"saadparwaiz1/cmp_luasnip",
+		},
+	},
+	{
+		"L3MON4D3/LuaSnip",
+		config = function()
+			require("afnan.lsp.luasnips")
+		end,
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+			"saadparwaiz1/cmp_luasnip",
+		},
+	},
+})
