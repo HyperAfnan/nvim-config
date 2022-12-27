@@ -12,7 +12,13 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup({
-	{ "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+	{
+		"nvim-telescope/telescope.nvim",
+		config = function()
+			require("afnan.telescope")
+		end,
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
 	{
 		"nathom/filetype.nvim",
 		config = function()
