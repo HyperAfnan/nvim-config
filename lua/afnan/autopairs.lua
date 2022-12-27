@@ -1,6 +1,6 @@
 local npairs = require("nvim-autopairs")
 local autopairs = require("nvim-autopairs.completion.cmp")
-local Cmp = require("cmp")
+local cmp = require("cmp")
 local Rule = require("nvim-autopairs.rule")
 local cond = require("nvim-autopairs.conds")
 
@@ -102,4 +102,4 @@ npairs.add_rules({
 		:with_del(cond.none()),
 })
 
-Cmp.event:on("confirm_done", autopairs.on_confirm_done())
+cmp.event:on("confirm_done", autopairs.on_confirm_done())

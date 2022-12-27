@@ -8,7 +8,6 @@ end
 local border = prequire("afnan.lsp.utils").borders()
 local codes = prequire("afnan.lsp.utils").diagnosticsCode()
 local function format(diagnostic)
-	print(vim.inspect(diagnostic))
 	if diagnostic.user_data == nil then
 		return diagnostic.message
 	elseif vim.tbl_isempty(diagnostic.user_data) then

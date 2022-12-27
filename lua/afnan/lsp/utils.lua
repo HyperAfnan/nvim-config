@@ -122,8 +122,8 @@ M.on_attach = function(client, bufnr)
 		hide_from_history = true,
 	})
 	-- Disable formatting
-	client.server_capabilities.document_formatting = false
-	client.server_capabilities.document_range_formatting = false
+	--[[ client.server_capabilities.document_formatting = false
+	client.server_capabilities.document_range_formatting = false ]]
 
 	local function set_keymap(mode, lhs, rhs)
 		vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, { silent = true, noremap = true })
