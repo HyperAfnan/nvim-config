@@ -17,7 +17,10 @@ require("lazy").setup({
 		config = function()
 			require("afnan.telescope")
 		end,
-		dependencies = { "nvim-lua/plenary.nvim" },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		},
 	},
 	{
 		"nathom/filetype.nvim",

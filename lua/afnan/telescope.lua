@@ -47,16 +47,16 @@ telescope.setup({
 			find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
 		},
 	},
-	--[[ extensions = { ]]
-	--[[ 	fzf = { ]]
-	--[[ 		fuzzy = true, ]]
-	--[[ 		override_generic_sorter = true, ]]
-	--[[ 		override_file_sorter = true, ]]
-	--[[ 		case_mode = "ignore_case", ]]
-	--[[ 	}, ]]
-	--[[ }, ]]
+	extensions = {
+		fzf = {
+			fuzzy = true,
+			override_generic_sorter = true,
+			override_file_sorter = true,
+			case_mode = "ignore_case",
+		},
+	},
 })
 
---[[ load("fzf") ]]
+load("fzf")
 load("dotfiles")
 load("work")
