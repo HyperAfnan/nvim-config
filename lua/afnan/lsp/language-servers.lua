@@ -57,6 +57,29 @@ nvim_lsp.eslint.setup({
 	},
 })
 
+nvim_lsp.jsonls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	init_options = { provideFormatter = false },
+	single_file_support = true,
+	settings = {
+		json = { schemas = require("schemastore").json.schemas() },
+	},
+})
+
+nvim_lsp.yamlls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		yaml = {
+			schemas = require("schemastore").json.schemas(),
+			hover = true,
+			completion = true,
+			validate = true,
+		},
+	},
+})
+
 nvim_lsp.sumneko_lua.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
