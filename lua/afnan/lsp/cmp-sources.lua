@@ -2,7 +2,7 @@
 local sources = {
 	{ name = "luasnip", max_item_count = 2, option = { show_autosnippets = true } },
 	{ name = "nvim_lsp", max_item_count = 4 },
-	--[[ { name = "nvim_lsp_signature_help" }, ]]
+	{ name = "nvim_lsp_signature_help" },
 	{ name = "buffer", max_item_count = 2 },
 	{ name = "path" },
 	{ name = "devicons", priority = 500 },
@@ -18,6 +18,10 @@ if vim.o.ft == "zsh" then
 		zshrc = true,
 		filetypes = { "zsh" },
 	})
+end
+
+if vim.fn.expand("%:t") == "plugins.lua" then
+	table.insert(sources, { name = "plugins" })
 end
 
 --- Reference: https://github.com/hrsh7th/nvim-cmp/discussions/702
