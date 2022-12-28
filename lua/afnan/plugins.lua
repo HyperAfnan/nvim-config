@@ -54,14 +54,14 @@ require("lazy").setup({
 			require("afnan.notify")
 		end,
 	},
-   {
-      "petertriho/nvim-scrollbar",
-      config = function ()
-         require("scrollbar").setup({
-            handler = { gitsigns = true }
-         })
-      end
-   },
+	{
+		"petertriho/nvim-scrollbar",
+		config = function()
+			require("scrollbar").setup({
+				handler = { gitsigns = true },
+			})
+		end,
+	},
 
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -142,7 +142,7 @@ require("lazy").setup({
 				signcolumn = true,
 				numhl = false,
 			})
-         require("scrollbar.handlers.gitsigns").setup()
+			require("scrollbar.handlers.gitsigns").setup()
 		end,
 	},
 })
