@@ -51,14 +51,13 @@ end
 
 -- Diagnostics Setup
 vim.diagnostic.config({
-	signs = true,
+	signs = false,
 	virtual_text = false,
-	update_in_insert = true,
+	update_in_insert = false,
 	underline = true,
 	float = {
 		focusable = false,
 		border = border,
-		scope = "cursor",
 		source = "if_many",
 		format = format,
 		header = { "Cursor Diagnostics: ", "DiagnosticInfo" },

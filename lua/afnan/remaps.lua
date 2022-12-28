@@ -58,3 +58,10 @@ set_keymap("n", "<leader>ff", builtin.find_files)
 set_keymap("n", "<leader>fg", builtin.live_grep)
 set_keymap("n", "<leader>fb", builtin.buffers)
 set_keymap("n", "<leader>fh", builtin.help_tags)
+
+-- Remaps
+set_keymap("n", ",ghs", ":Gitsigns stage_hunk<CR>")
+set_keymap("n", ",ghr", ":Gitsigns reset_hunk<CR>")
+set_keymap("n", ",gbs", ":Gitsigns stage_buffer<CR>")
+set_keymap("n", ",gbr", ":Gitsigns reset_buffer<CR>")
+set_keymap('n', ",ghu", '<cmd>Gitsigns undo_stage_hunk<CR>')

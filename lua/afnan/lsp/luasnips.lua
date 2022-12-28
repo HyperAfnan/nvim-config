@@ -1,4 +1,3 @@
----@diagnostic disable: unused-local
 local ls = require("luasnip")
 local types = require("luasnip.util.types")
 

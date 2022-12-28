@@ -10,11 +10,11 @@ vim.cmd("filetype indent on")
 set.termguicolors = true
 
 set.encoding = "utf-8"
-set.fileencoding = "utf-8"
 set.fileencodings = "utf-8"
 
 set.number = true
 set.ruler = true
+set.modifiable = true
 
 set.fillchars = {
 	eob = " ",

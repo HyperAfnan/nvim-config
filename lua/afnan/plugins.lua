@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
@@ -66,9 +67,16 @@ require("lazy").setup({
 			{ "JoosepAlviste/nvim-ts-context-commentstring" },
 		},
 	},
-	"windwp/nvim-autopairs",
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = function()
+			require("afnan.autopairs")
+		end,
+	},
 	{
 		"numToStr/Comment.nvim",
+		keys = { "gc", "gcc", "gb", "gbc" },
 		config = function()
 			require("afnan.comments")
 		end,
@@ -118,5 +126,14 @@ require("lazy").setup({
 			"rafamadriz/friendly-snippets",
 			"saadparwaiz1/cmp_luasnip",
 		},
+	},
+	{
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup({
+				signcolumn = true,
+				numhl = false,
+			})
+		end,
 	},
 })
