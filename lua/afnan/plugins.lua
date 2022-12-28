@@ -47,6 +47,12 @@ require("lazy").setup({
 	},
 	{ "tweekmonster/startuptime.vim", pin = true, cmd = "StartupTime" },
 	"kyazdani42/nvim-web-devicons",
+	{
+		"rcarriga/nvim-notify",
+		config = function()
+			require("afnan.notify")
+		end,
+	},
 
 	{
 		"nvim-treesitter/nvim-treesitter",
