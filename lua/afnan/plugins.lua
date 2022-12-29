@@ -21,15 +21,15 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-         {
-            "AckslD/nvim-neoclip.lua",
-            dependencies = {
-               {'kkharji/sqlite.lua'},
-            },
-            config = function()
-               require('neoclip').setup()
-            end,
-            }
+			{
+				"AckslD/nvim-neoclip.lua",
+				dependencies = {
+					{ "kkharji/sqlite.lua" },
+				},
+				config = function()
+					require("neoclip").setup()
+				end,
+			},
 		},
 	},
 	{
@@ -57,6 +57,14 @@ require("lazy").setup({
 	},
 	{ "tweekmonster/startuptime.vim", pin = true, cmd = "StartupTime" },
 	"kyazdani42/nvim-web-devicons",
+   {
+      "akinsho/bufferline.nvim",
+      version = "v3.*",
+      dependencies = { "kyazdani42/nvim-web-devicons" },
+      config = function ()
+         require("afnan.bufferline")
+      end
+   },
 	{
 		"rcarriga/nvim-notify",
 		config = function()
