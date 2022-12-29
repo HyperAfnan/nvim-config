@@ -21,6 +21,15 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+         {
+            "AckslD/nvim-neoclip.lua",
+            dependencies = {
+               {'kkharji/sqlite.lua'},
+            },
+            config = function()
+               require('neoclip').setup()
+            end,
+            }
 		},
 	},
 	{
