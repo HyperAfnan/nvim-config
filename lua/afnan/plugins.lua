@@ -102,6 +102,12 @@ require("lazy").setup({
 			{ "windwp/nvim-ts-autotag", ft = { "html", "javascript", "javascriptreact" } },
 			{ "p00f/nvim-ts-rainbow" },
 			{ "JoosepAlviste/nvim-ts-context-commentstring" },
+			{
+				"abecodes/tabout.nvim",
+				config = function()
+					require("tabout").setup({})
+				end,
+			},
 		},
 	},
 	{

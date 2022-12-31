@@ -39,6 +39,7 @@ set_keymap("", "<A-l>", "<C-w>l")
 -- for quick buffer switching
 set_keymap("n", "<tab>", ":bnext<CR>")
 set_keymap("n", "<S-tab>", ":bprevious<CR>")
+set_keymap("n", ",bd", ":bdelete!<CR>")
 
 -- For quickfix list
 set_keymap("n", "<C-j>", ":cnext<CR>")
