@@ -4,10 +4,9 @@ redefined = false
 
 std = "luajit"
 
-globals = { "vim", "packer_bootstrap" }
+globals = { "vim" }
 
 exclude_files = {
-	"lua/afnan/packer_compiled.lua",
 	"lua/afnan/lsp/utils.lua",
 	"lua/afnan/statusline/core.lua",
 }

@@ -180,4 +180,16 @@ require("lazy").setup({
 			require("scrollbar.handlers.gitsigns").setup()
 		end,
 	},
+	{
+		"pwntester/octo.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+			"kyazdani42/nvim-web-devicons",
+		},
+		config = function()
+			require("octo").setup({})
+		end,
+		cmd = "Octo",
+	},
 })
