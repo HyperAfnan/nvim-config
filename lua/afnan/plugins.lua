@@ -50,13 +50,21 @@ require("lazy").setup({
 		end,
 	},
 	{
+		"nvim-tree/nvim-tree.lua",
+		dependencies = { "kyazdani42/nvim-web-devicons" },
+		cmd = { "NvimTreeToggle", "NvimTreeFocus", "NvimTreeFindFile" },
+		config = function()
+			require("afnan.nvimtree")
+		end,
+	},
+	{
 		"folke/tokyonight.nvim",
 		config = function()
 			vim.cmd("colorscheme tokyonight")
 		end,
 	},
 	{ "tweekmonster/startuptime.vim", pin = true, cmd = "StartupTime" },
-	"kyazdani42/nvim-web-devicons",
+	{ "kyazdani42/nvim-web-devicons" },
 	{
 		"akinsho/bufferline.nvim",
 		version = "v3.*",
