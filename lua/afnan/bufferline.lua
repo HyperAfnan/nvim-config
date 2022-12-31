@@ -6,8 +6,8 @@ local function sort_by_mtime(a, b)
 	return mod_a > mod_b
 end
 
-require("bufferline").setup{
-   options = {
+require("bufferline").setup({
+	options = {
 		numbers = "none",
 		close_command = "bdelete! %d",
 		sort_by = sort_by_mtime,
@@ -53,18 +53,6 @@ require("bufferline").setup{
 				guifg = { attribute = "fg", highlight = "Normal" },
 				guibg = { attribute = "bg", highlight = "Normal" },
 			},
-			separator = {
-				guifg = { attribute = "bg", highlight = "Normal" },
-				guibg = { attribute = "bg", highlight = "StatusLine" },
-			},
-			separator_selected = {
-				guifg = { attribute = "fg", highlight = "Special" },
-				guibg = { attribute = "bg", highlight = "Normal" },
-			},
-			separator_visible = {
-				guifg = { attribute = "fg", highlight = "Normal" },
-				guibg = { attribute = "bg", highlight = "StatusLineNC" },
-			},
 			close_button = {
 				guifg = { attribute = "fg", highlight = "Normal" },
 				guibg = { attribute = "bg", highlight = "StatusLine" },
@@ -79,4 +67,4 @@ require("bufferline").setup{
 			},
 		},
 	},
-}
+})

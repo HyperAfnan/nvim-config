@@ -51,7 +51,7 @@ end
 
 -- Diagnostics Setup
 vim.diagnostic.config({
-	signs = false,
+	signs = true,
 	virtual_text = false,
 	update_in_insert = false,
 	underline = true,

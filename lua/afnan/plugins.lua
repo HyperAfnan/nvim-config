@@ -57,14 +57,14 @@ require("lazy").setup({
 	},
 	{ "tweekmonster/startuptime.vim", pin = true, cmd = "StartupTime" },
 	"kyazdani42/nvim-web-devicons",
-   {
-      "akinsho/bufferline.nvim",
-      version = "v3.*",
-      dependencies = { "kyazdani42/nvim-web-devicons" },
-      config = function ()
-         require("afnan.bufferline")
-      end
-   },
+	{
+		"akinsho/bufferline.nvim",
+		version = "v3.*",
+		dependencies = { "kyazdani42/nvim-web-devicons" },
+		config = function()
+			require("afnan.bufferline")
+		end,
+	},
 	{
 		"rcarriga/nvim-notify",
 		config = function()
@@ -76,10 +76,10 @@ require("lazy").setup({
 		config = function()
 			local colors = require("tokyonight.colors").setup()
 			require("scrollbar").setup({
-				handler = {
-					gitsigns = true,
-					color = colors.bg_highlight,
-				},
+				hide_if_all_visible = true,
+				handler = { color = colors.bg_highlight },
+				handlers = { gitsigns = true, cursor = false },
+				excluded_filetypes = { "TelescopePrompt", "lazy" },
 				marks = {
 					Search = { color = colors.orange },
 					Error = { color = colors.error },
